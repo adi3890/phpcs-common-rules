@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ruleset name="Project Standards with Security">
+    <description>Project coding standards including organization security rules</description>
+
+    <!-- Your existing project rules -->
+    <rule ref="PSR12"/>
+    
+    <!-- Add organization security standards -->
+    <rule ref="CommonSecurity"/>
+    
+    <!-- File patterns to check -->
+    <file>.</file>
+    
+    <!-- Exclude patterns -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    
+</ruleset>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<ruleset name="Common Security Standards - Flexible">
+    <description>Flexible security standards that can be customized per project</description>
+
+    <!-- Include the base security rules -->
+    <rule ref="CommonSecurity"/>
+
+    <!-- Allow projects to exclude specific functions if needed -->
+    <!-- Projects can override these by excluding specific elements -->
+    
+    <!-- Example: Less critical functions that might be needed in some projects -->
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <properties>
+            <property name="forbiddenFunctions" type="array">
+                <!-- Commented out functions that might be needed in specific contexts -->
+                <!-- Uncomment these in your project's phpcs.xml if you need to allow them -->
+                <!-- <element key="include" value="Avoid using include with untrusted input — may lead to Local or Remote File Inclusion (LFI/RFI). Validate and sanitize paths or use autoloaders."/> -->
+                <!-- <element key="include_once" value="Avoid using include_once with untrusted input — may lead to LFI/RFI. Use autoloaders or validated paths."/> -->
+                <!-- <element key="require" value="Avoid using require with untrusted input — may lead to LFI/RFI. Validate file paths strictly."/> -->
+                <!-- <element key="require_once" value="Avoid using require_once with untrusted input — may lead to LFI/RFI. Use autoloaders or strict path validation."/> -->
+                <!-- <element key="unserialize" value="Avoid using unserialize() on untrusted data — it leads to PHP Object Injection. Use json_decode() with trusted JSON instead."/> -->
+                <!-- <element key="maybe_unserialize" value="Avoid using maybe_unserialize() with untrusted input — subject to the same vulnerabilities as unserialize()."/> -->
+                <!-- <element key="base64_decode" value="Avoid using base64_decode() to hide or obfuscate data — it may be used to bypass filters. Prefer explicit and transparent encoding/decoding."/> -->
+                <!-- <element key="mail" value="Avoid using mail() — prone to email header injection. Use a well-maintained library like PHPMailer or Symfony Mailer."/> -->
+                <!-- <element key="$wpdb->query" value="Avoid using raw $wpdb->query with dynamic SQL — leads to SQL injection. Use $wpdb->prepare() or abstraction layers."/> -->
+            </property>
+        </properties>
+    </rule>
+    
+</ruleset>

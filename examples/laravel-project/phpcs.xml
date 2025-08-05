@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ruleset name="Laravel Project with Security Standards">
+    <description>Laravel project with organization security standards</description>
+
+    <!-- PSR-12 for Laravel -->
+    <rule ref="PSR12"/>
+    
+    <!-- Add security standards -->
+    <rule ref="CommonSecurity"/>
+    
+    <!-- Laravel-specific considerations -->
+    <!-- Allow unserialize in specific Laravel cache/session contexts -->
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <exclude-pattern>*/storage/framework/*</exclude-pattern>
+    </rule>
+    
+    <!-- File patterns -->
+    <file>app</file>
+    <file>config</file>
+    <file>database</file>
+    <file>routes</file>
+    <file>tests</file>
+    
+    <!-- Laravel exclusions -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/storage/*</exclude-pattern>
+    <exclude-pattern>*/bootstrap/cache/*</exclude-pattern>
+    <exclude-pattern>*/public/index.php</exclude-pattern>
+    
+</ruleset>

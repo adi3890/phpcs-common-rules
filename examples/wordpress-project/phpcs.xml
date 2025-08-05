@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Project with Security Standards">
+    <description>WordPress project with organization security standards</description>
+
+    <!-- WordPress Coding Standards -->
+    <rule ref="WordPress"/>
+    
+    <!-- Add security standards -->
+    <rule ref="CommonSecurity"/>
+    
+    <!-- WordPress-specific exclusions -->
+    <!-- WordPress core sometimes uses functions we normally forbid -->
+    <rule ref="Generic.PHP.ForbiddenFunctions.Found">
+        <!-- Allow extract() in WordPress template files where it's commonly used -->
+        <exclude-pattern>*/templates/*</exclude-pattern>
+        <exclude-pattern>*/template-parts/*</exclude-pattern>
+    </rule>
+    
+    <!-- File patterns -->
+    <file>.</file>
+    
+    <!-- Standard WordPress exclusions -->
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/wp-content/uploads/*</exclude-pattern>
+    
+    <!-- WordPress specific exclusions -->
+    <exclude-pattern>*/wp-admin/*</exclude-pattern>
+    <exclude-pattern>*/wp-includes/*</exclude-pattern>
+    <exclude-pattern>*/wp-*.php</exclude-pattern>
+    <exclude-pattern>*/index.php</exclude-pattern>
+    
+</ruleset>
