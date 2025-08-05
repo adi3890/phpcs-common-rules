@@ -13,10 +13,18 @@
         "php": ">=7.4",
         "squizlabs/php_codesniffer": "^3.5"
     },
-    "autoload": {
-        "psr-4": {
-            "Adi3890\\PHPCSCommonRules\\": "src/"
-        }
+    "bin": [
+        "bin/generate-config"
+    ],
+    "scripts": {
+        "generate-config": "bin/generate-config",
+        "setup-security": "bin/generate-config",
+        "post-install-cmd": [
+            "@generate-config"
+        ],
+        "post-update-cmd": [
+            "@generate-config"
+        ]
     },
     "extra": {
         "branch-alias": {
